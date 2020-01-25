@@ -1,6 +1,7 @@
 package com.example.meep.controllers;
 
 import com.example.meep.entities.MeepResource;
+import com.example.meep.entities.MeepResourceStatus;
 import com.example.meep.services.MeepResourceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,16 +16,16 @@ public class MeepResourceController {
     @Autowired
     MeepResourceService meepResourceService;
 
-    private List<MeepResource> meepResources = null;
+    private MeepResourceStatus meepResourceStatusResponse = null;
 
     @Scheduled(cron = "*/120 * * * * *")
-    public List<MeepResource> getResourcesByZone() {
+    public MeepResourceStatus getResourcesByZone() {
         try {
-            meepResources = meepResourceService.getMeepResourcesByZone();
+            meepResourceStatusResponse = meepResourceService.getMeepResourcesByZone();
         } catch (Exception ex) {
             logger.error("There's a problem fetching the resources. Try again latter. ", ex);
         }
 
-        return meepResources;
+        return meepResourceStatusResponse;
     }
 }
