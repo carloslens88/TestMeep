@@ -1,0 +1,20 @@
+Preguntas:
+
+¿Cómo de escalable es tu solución propuesta? 
+
+Modularmente, el proyecto está concebido para que se puedan agregar nuevos componentes en cualquier de sus capas. En el caso concreto del objecto de respuesta (MeepResource) crezca o bien se modifiquen o eliminen atributos del mismo, el impacto sobre la solución es mínimo. 
+
+El servicio de caché es reutilizable, por lo que se podrían generar diferentes objetos en caché de forma paralela.
+
+
+
+¿Que problemas a futuro podría presentar? 
+
+En determinado momento el objeto en memoria (caché) podría ser muy grande, lo que impactaría de forma negativa en el performance de la API. 
+
+
+Si has detectado alguno, ¿Qué alternativa/s propones para solventar dichos problemas?
+
+Al trabajar con una memoria caché, siempre es importante manejar determinadas políticas para su correcto funcionamiento. Como por ejemplo: tiempo de vida, actualización, etc.
+
+En el caso de que el objeto de respuesta sea muy grande, siempre se puede parametrizar de forma que la respuesta sea más concisa. De forma paralela se podría pensar en una solución con paginación para un rendimiento mejor a la hora de evaluar los tiempos de respuesta del servicio.
