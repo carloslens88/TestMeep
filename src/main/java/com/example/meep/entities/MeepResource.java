@@ -8,6 +8,7 @@ public class MeepResource {
     private String licencePlate;
     private int range;
     private int batteryLevel;
+    private int helmets;
     private int seats;
     private String model;
     private String resourceImageId;
@@ -72,6 +73,14 @@ public class MeepResource {
 
     public void setBatteryLevel(int batteryLevel) {
         this.batteryLevel = batteryLevel;
+    }
+
+    public int getHelmets() {
+        return helmets;
+    }
+
+    public void setHelmets(int helmets) {
+        this.helmets = helmets;
     }
 
     public int getSeats() {
